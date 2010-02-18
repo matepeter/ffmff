@@ -7,7 +7,7 @@
 <p>More information: <a href="{{event.url}}">{{event.url}}</a></p>
 <hr>
 <p>
-{% for tag in event.tags %}
+{% for tag in event.tags.all %}
 	{{ tag }}{% if not forloop.last %}, {% endif %}
 {% endfor %}
 </p>
