@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}- Submit Event{% endblock %}
+{% block content %}
+<h1>Submit Event</h1>
+<form method="POST" action="/events/submit/">
+<table class="submit_form">
+{{ form.as_table }}
+<tr><th></th><td><input type="submit" value="Submit"> <input type="submit" name="abort" Value="Abort"></td></tr>
+</table>
+</form>
+{% endblock %}
