@@ -5,5 +5,6 @@ from django.contrib import admin
 admin.site.register(Event)
 admin.site.register(Tag)
 
-urlpatterns = patterns('',
+urlpatterns = patterns('ffmff.events.views',
+	(r'^(?P<id>\d)/$', 'view_event'),
 )

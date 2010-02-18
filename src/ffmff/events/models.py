@@ -12,6 +12,8 @@ class Event(models.Model):
 	def __unicode__(self):
 		return self.name
 
+	def get_absolute_url(self):
+		return '/events/%i/' % self.pk
 
 class Tag(models.Model):
 	tag  = models.CharField(max_length=30)
