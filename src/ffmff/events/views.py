@@ -1,6 +1,6 @@
 from models import Event, Tag
 from forms import EventForm
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -22,6 +22,8 @@ def submit_event(request):
 			event.name = form.cleaned_data['name']
 			event.desc = form.cleaned_data['desc']
 			event.url = form.cleaned_data['url']
+			event.date_start = form.cleaned_data['date_start']
+			event.date_end   = form.cleaned_data['date_end']
 			event.published = False
 			event.save()
 			return HttpResponseRedirect('/events/submit/success/')

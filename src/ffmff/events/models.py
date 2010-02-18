@@ -7,7 +7,7 @@ class Event(models.Model):
 	# img  = 
 	date_start = models.DateField()
 	date_end   = models.DateField()
-	tags = models.ManyToManyField('Tag')
+	tags = models.ManyToManyField('Tag', blank=True)
 	published = models.BooleanField()
 	
 	def __unicode__(self):
