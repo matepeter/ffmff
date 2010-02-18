@@ -1,0 +1,8 @@
+*.pyc
+*.pyo
+*.swp
+*.swo
+settings.py
+src/ffmff/venv/*
+sqlite.db
+index/*
