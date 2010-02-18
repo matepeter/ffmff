@@ -8,10 +8,11 @@ class Event(models.Model):
 	date_start = models.DateField()
 	date_end   = models.DateField()
 	tags = models.ManyToManyField('Tag')
+	published = models.BooleanField()
 	
 	def __unicode__(self):
 		return self.name
-
+	
 	def get_absolute_url(self):
 		return '/events/%i/' % self.pk
 
