@@ -10,7 +10,5 @@ def view_event(request, id):
 		raise Http404
 	
 	return render_to_response('events/view_event.html',
-	                          {
-	                              'event': event,
-	                          },
+	                          { 'event': event },
 	                          context_instance=RequestContext(request))
