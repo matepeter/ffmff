@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}- {{event.name}}{% endblock %}
+{% block content %}
+<h1>{{event.name}}</h1>
+<p>{{event.date_start}} - {{event.date_end}}</p>
+<p>{{event.desc}}</p>
+<p>More information: <a href="{{event.url}}">{{event.url}}</a></p>
+<hr>
+<p>
+{% for tag in event.tags %}
+	{{ tag }}{% if not forloop.last %}, {% endif %}
+{% endfor %}
+</p>
+{% endblock %}
