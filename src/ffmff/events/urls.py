@@ -1,9 +1,9 @@
 from django.conf.urls.defaults import *
+from models import Event, Tag
 
 from django.contrib import admin
-admin.autodiscover()
+admin.site.register(Event)
+admin.site.register(Tag)
 
 urlpatterns = patterns('',
-	(r'^events/', include('ffmff.events.urls')),
-	(r'^admin/(.*)', admin.site.root),
 )
