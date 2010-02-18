@@ -7,3 +7,8 @@ urlpatterns = patterns('',
 	(r'^events/', include('ffmff.events.urls')),
 	(r'^admin/(.*)', admin.site.root),
 )
+
+# Home
+urlpatterns += patterns('django.views.generic.simple',
+	(r'^$', 'direct_to_template', {'template': 'home.html'}),
+)
