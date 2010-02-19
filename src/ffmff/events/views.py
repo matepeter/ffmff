@@ -16,6 +16,8 @@ def view_event(request, id):
 
 def submit_event(request):
 	if request.method == 'POST':
+		if request.POST.has_key('abort'):
+			return HttpResponseRedirect('/')
 		form = EventForm(request.POST)
 		if form.is_valid():
 			event = Event()
