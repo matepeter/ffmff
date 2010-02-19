@@ -8,6 +8,7 @@ urlpatterns = patterns('',
 # Home
 urlpatterns += patterns('django.views.generic.simple',
 	(r'^$', 'direct_to_template', {'template': 'home.html'}),
+	(r'^search/', include('haystack.urls')),
 )
 
 if DEBUG:

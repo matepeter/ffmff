@@ -4,5 +4,5 @@
 *.swo
 settings.py
 src/ffmff/venv/*
+src/ffmff/index/*
 sqlite.db
-index/*

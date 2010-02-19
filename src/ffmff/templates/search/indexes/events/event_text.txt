@@ -1,0 +1,5 @@
+{{ object.name }}
+{{ object.desc }}
+{% for tag in object.tags.all %}
+	{{ tag }}
+{% endfor %}

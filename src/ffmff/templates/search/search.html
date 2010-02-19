@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load highlight %}
+
+{% block title %}- Search{% endblock %}
+
+{% block content %}
+{% if query %}
+	{% for result in page.object_list %}
+	<p>
+	<big><a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a></big><br />
+	{% highlight result.object.desc with query html_tag "strong" max_length 200 %}
+	</p>
+	{% empty %}
+	<p>Could not find any documents matching your query.</p>
+	{% endfor %}
+{% else %}
+	<h2>Help</h2>
+	<p>
+	Lorem ipsum dolor sit amet
+	</p>
+{% endif %}
+<p>Page {{ page.number }} of {{ page.paginator.num_pages }}</p>
+{{ page.object_num }}
+<p>
+{% if page.number > 1 %}
+<a href="{{ base }}?query={{ query|urlencode }}&amp;page={{ page.previous_page_number }}">&larr; Previous</a>
+{% endif %}
+{% if page.number < page.paginator.num_pages %}
+<a href="{{ base }}?query={{ query|urlencode }}&amp;page={{ page.next_page_number }}">Next &rarr;</a>
+{% endif %}
+</p>
+{% endblock %}

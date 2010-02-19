@@ -79,7 +79,14 @@ INSTALLED_APPS = (
 	'django.contrib.sessions',
 	'django.contrib.sites',
 	'ffmff.events',
+	'ffmff.templatetags',
+	'haystack',
 )
 
 if DEBUG:
 	INSTALLED_APPS += ('django.contrib.admin',)
+
+# haystack (search) specific options
+HAYSTACK_SITECONF = 'ffmff.search_sites'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH = DATA_ROOT_DIR + 'index/'
