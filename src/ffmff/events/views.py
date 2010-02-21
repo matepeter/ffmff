@@ -6,9 +6,11 @@
 
 from models import Event, Tag
 from forms import EventForm
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.template import RequestContext, Context
+from django.template.loader import get_template
+from datetime import timedelta
 
 def view_event(request, id):
 	try:
@@ -41,3 +43,19 @@ def submit_event(request):
 	return render_to_response('events/submit_event.html',
 	                          { 'form': form },
 	                          context_instance=RequestContext(request))
+
+def export_ical(request, id):
+	try:
+		event = Event.objects.get(pk=id)
+	except Event.DoesNotExist:
+		raise Http404
+	
+	ical_enddate = event.date_end + timedelta(days=1)
+
+	t = get_template('events/export_ical.ics')
+	render = t.render(Context({ 'event': event, 'ical_enddate': ical_enddate }))
+
+	response = HttpResponse(render, mimetype='text/calendar')
+	response['Content-Disposition'] = 'attachment; filename=ffmff_event_%s.ics' % event.pk
+
+	return response
