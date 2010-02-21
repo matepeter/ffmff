@@ -18,6 +18,9 @@ def view_event(request, id):
 	except Event.DoesNotExist:
 		raise Http404
 	
+	if not event.published:
+		raise Http404
+	
 	return render_to_response('events/view_event.html',
 	                          { 'event': event },
 	                          context_instance=RequestContext(request))
@@ -50,6 +53,9 @@ def export_ical(request, id):
 	except Event.DoesNotExist:
 		raise Http404
 	
+	if not event.published:
+		raise Http404
+
 	ical_enddate = event.date_end + timedelta(days=1)
 
 	t = get_template('events/export_ical.ics')
