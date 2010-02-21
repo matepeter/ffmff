@@ -17,10 +17,10 @@ def view_event(request, id):
 		event = Event.objects.get(pk=id)
 	except Event.DoesNotExist:
 		raise Http404
-	
+
 	if not event.published:
 		raise Http404
-	
+
 	return render_to_response('events/view_event.html',
 	                          { 'event': event },
 	                          context_instance=RequestContext(request))
@@ -42,7 +42,7 @@ def submit_event(request):
 			return HttpResponseRedirect('/events/submit/success/')
 	else:
 		form = EventForm()
-	
+
 	return render_to_response('events/submit_event.html',
 	                          { 'form': form },
 	                          context_instance=RequestContext(request))
@@ -52,7 +52,7 @@ def export_ical(request, id):
 		event = Event.objects.get(pk=id)
 	except Event.DoesNotExist:
 		raise Http404
-	
+
 	if not event.published:
 		raise Http404
 

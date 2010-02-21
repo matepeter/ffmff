@@ -15,15 +15,15 @@ class Event(models.Model):
 	date_end   = models.DateField()
 	tags = models.ManyToManyField('Tag', blank=True)
 	published = models.BooleanField()
-	
+
 	def __unicode__(self):
 		return self.name
-	
+
 	def get_absolute_url(self):
 		return '/events/%i/' % self.pk
 
 class Tag(models.Model):
 	tag  = models.CharField(max_length=30)
-	
+
 	def __unicode__(self):
 		return self.tag
