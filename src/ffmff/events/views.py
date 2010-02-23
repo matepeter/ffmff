@@ -22,12 +22,8 @@ def view_event(request, id):
 	if not event.published:
 		raise Http404
 
-	description = replace(event.desc, '\n', '<br>')
-	description = replace(description, '\r', '')
-
 	return render_to_response('events/view_event.html',
-	                          { 'event': event,
-	                            'description': description },
+	                          { 'event': event },
 	                          context_instance=RequestContext(request))
 
 def submit_event(request):
