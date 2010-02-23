@@ -11,6 +11,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext, Context
 from django.template.loader import get_template
 from datetime import timedelta
+from string import replace
 
 def view_event(request, id):
 	try:
@@ -57,9 +58,13 @@ def export_ical(request, id):
 		raise Http404
 
 	ical_enddate = event.date_end + timedelta(days=1)
+	ical_desc = replace(event.desc, '\n', '\\n')
+	ical_desc = replace(ical_desc, '\r', '')
 
 	t = get_template('events/export_ical.ics')
-	render = t.render(Context({ 'event': event, 'ical_enddate': ical_enddate }))
+	render = t.render(Context({ 'event': event, 
+	                            'ical_enddate': ical_enddate,
+	                            'ical_desc': ical_desc, }))
 
 	response = HttpResponse(render, mimetype='text/calendar')
 	response['Content-Disposition'] = 'attachment; filename=ffmff_event_%s.ics' % event.pk
