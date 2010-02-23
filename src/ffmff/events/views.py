@@ -11,15 +11,23 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext, Context
 from django.template.loader import get_template
 from datetime import timedelta
+from string import replace
 
 def view_event(request, id):
 	try:
 		event = Event.objects.get(pk=id)
 	except Event.DoesNotExist:
 		raise Http404
-	
+
+	if not event.published:
+		raise Http404
+
+	description = replace(event.desc, '\n', '<br>')
+	description = replace(description, '\r', '')
+
 	return render_to_response('events/view_event.html',
-	                          { 'event': event },
+	                          { 'event': event,
+	                            'description': description },
 	                          context_instance=RequestContext(request))
 
 def submit_event(request):
@@ -39,7 +47,7 @@ def submit_event(request):
 			return HttpResponseRedirect('/events/submit/success/')
 	else:
 		form = EventForm()
-	
+
 	return render_to_response('events/submit_event.html',
 	                          { 'form': form },
 	                          context_instance=RequestContext(request))
@@ -49,11 +57,18 @@ def export_ical(request, id):
 		event = Event.objects.get(pk=id)
 	except Event.DoesNotExist:
 		raise Http404
-	
+
+	if not event.published:
+		raise Http404
+
 	ical_enddate = event.date_end + timedelta(days=1)
+	ical_desc = replace(event.desc, '\n', '\\n')
+	ical_desc = replace(ical_desc, '\r', '')
 
 	t = get_template('events/export_ical.ics')
-	render = t.render(Context({ 'event': event, 'ical_enddate': ical_enddate }))
+	render = t.render(Context({ 'event': event, 
+	                            'ical_enddate': ical_enddate,
+	                            'ical_desc': ical_desc, }))
 
 	response = HttpResponse(render, mimetype='text/calendar')
 	response['Content-Disposition'] = 'attachment; filename=ffmff_event_%s.ics' % event.pk

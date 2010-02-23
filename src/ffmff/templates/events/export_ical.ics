@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:{{ event.pk }}@ffmff
+SUMMARY:{{ event.name }}
+DESCRIPTION:{{ ical_desc }}
+DTSTART;TYPE=DATE:{{ event.date_start|date:"Ymd" }}
+DTEND;TYPE=DATE:{{ ical_enddate|date:"Ymd" }}
+URL;TYPE=URI:{{ event.url }}
+END:VEVENT
+END:VCALENDAR
