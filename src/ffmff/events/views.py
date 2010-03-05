@@ -10,14 +10,13 @@ from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext, Context
 from django.template.loader import get_template
+from ffmff.decorators import raise_404
 from datetime import timedelta
 from string import replace
 
+@raise_404
 def view_event(request, id):
-	try:
-		event = Event.objects.get(pk=id)
-	except Event.DoesNotExist:
-		raise Http404
+	event = Event.objects.get(pk=id)
 
 	if not event.published:
 		raise Http404
@@ -48,11 +47,9 @@ def submit_event(request):
 	                          { 'form': form },
 	                          context_instance=RequestContext(request))
 
+@raise_404
 def export_ical(request, id):
-	try:
-		event = Event.objects.get(pk=id)
-	except Event.DoesNotExist:
-		raise Http404
+	event = Event.objects.get(pk=id)
 
 	if not event.published:
 		raise Http404
