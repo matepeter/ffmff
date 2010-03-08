@@ -36,8 +36,11 @@ def home(request, page):
 		raise Http404('Page does not exist')
 
 	return render_to_response('home.html',
-	                          {'events': events, 'page': page, 'all_pages': all_pages},
-	                          context_instance=RequestContext(request))
+		{
+			'events': events,
+			'page': page,
+			'all_pages': all_pages
+		}, context_instance=RequestContext(request))
 
 @raise_404
 def view_event(request, id):
@@ -47,8 +50,7 @@ def view_event(request, id):
 		raise Http404
 
 	return render_to_response('events/view_event.html',
-	                          { 'event': event },
-	                          context_instance=RequestContext(request))
+		{'event': event}, context_instance=RequestContext(request))
 
 def submit_event(request):
 	if request.method == 'POST':
@@ -70,8 +72,7 @@ def submit_event(request):
 		form = EventForm()
 
 	return render_to_response('events/submit_event.html',
-	                          { 'form': form },
-	                          context_instance=RequestContext(request))
+		{'form': form}, context_instance=RequestContext(request))
 
 @raise_404
 def export_ical(request, id):
@@ -85,9 +86,14 @@ def export_ical(request, id):
 	ical_desc = replace(ical_desc, '\r', '')
 
 	t = get_template('events/export_ical.ics')
-	render = t.render(Context({ 'event': event, 
-	                            'ical_enddate': ical_enddate,
-	                            'ical_desc': ical_desc, }))
+
+	render = t.render(Context(
+		{
+			'event': event,
+			'ical_enddate': ical_enddate,
+			'ical_desc': ical_desc,
+		}
+	))
 
 	response = HttpResponse(render, mimetype='text/calendar')
 	response['Content-Disposition'] = 'attachment; filename=ffmff_event_%s.ics' % event.pk
