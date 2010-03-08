@@ -1,5 +1,12 @@
 {% extends "base.html" %}
+{% load markup %}
 
 {% block content %}
-Blah. Das ist home.html.
+<div>Page {{ page }} of {{ all_pages }}</div>
+{% for e in events %}
+	<h1><a href="{{ e.get_absolute_url }}">{{ e.name }}</a></h1>
+	<div>{{ e.desc|markdown }}</div>
+{% empty %}
+	<div>There are no events.</div>
+{% endfor %}
 {% endblock %}
