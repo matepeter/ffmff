@@ -15,6 +15,7 @@ class Event(models.Model):
 	date_end   = models.DateField()
 	tags = models.ManyToManyField('Tag', blank=True)
 	published = models.BooleanField()
+	submit_ip = models.IPAddressField()
 
 	def __unicode__(self):
 		return self.name

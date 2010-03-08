@@ -38,6 +38,7 @@ def submit_event(request):
 			event.date_start = form.cleaned_data['date_start']
 			event.date_end   = form.cleaned_data['date_end']
 			event.published = False
+			event.submit_ip = request.META['REMOTE_ADDR']
 			event.save()
 			return HttpResponseRedirect('/events/submit/success/')
 	else:
