@@ -5,6 +5,7 @@ virtualenv venv
 
 # django ;)
 pip install $1 django
+pip install $1 south
 
 # search
 pip install $1 whoosh

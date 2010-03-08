@@ -82,6 +82,7 @@ INSTALLED_APPS = (
 	'ffmff.events',
 	'ffmff.templatetags',
 	'haystack',
+	'south',
 )
 
 if DEBUG:
