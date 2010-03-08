@@ -3,6 +3,6 @@
 *.swp
 *.swo
 settings.py
-src/ffmff/venv/*
-src/ffmff/index/*
+venv/*
+index/*
 sqlite.db
