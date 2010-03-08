@@ -8,7 +8,7 @@ from django.conf.urls.defaults import *
 from settings import DEBUG
 
 urlpatterns = patterns('ffmff.events.views',
-	(r'^(page/(?P<page>\d)/)?$', 'home'),
+	(r'^(page/(?P<page>\d+)/)?$', 'home'),
 	(r'^events/', include('ffmff.events.urls')),
 )
 
