@@ -1,11 +1,18 @@
 # Django settings for ffmff project.
 
-TEMPLATE_DIR = ""
-DATA_ROOT_DIR = ""
-
 # debug
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+if DEBUG:
+	import os
+	cwd = os.getcwd()
+	DATA_ROOT_DIR = cwd + '/'
+	TEMPLATE_DIR = DATA_ROOT_DIR + 'templates'
+else:
+	# set to real paths
+	DATA_ROOT_DIR = ''
+	TEMPLATE_DIR = ''
 
 ADMINS = (
 	# ('Your Name', 'your_email@domain.com'),
