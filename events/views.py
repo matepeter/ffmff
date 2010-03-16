@@ -27,8 +27,9 @@ def home(request, page):
 
 	start = 10 * (page-1)
 	events = Event.objects.filter(published=True, date_end__gte=datetime.now()).order_by('date_start')
+	all_count = events.count()
 	# couldn't that be done much nicer?
-	all_pages = int(ceil(len(events)/10.0))
+	all_pages = int(ceil(all_count/10.0))
 	events = events[start:start+10]
 
 	if len(events) == 0 \
@@ -39,7 +40,8 @@ def home(request, page):
 		{
 			'events': events,
 			'page': page,
-			'all_pages': all_pages
+			'all_pages': all_pages,
+			'all_count': all_count,
 		}, context_instance=RequestContext(request))
 
 @raise_404
