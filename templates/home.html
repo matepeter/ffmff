@@ -2,11 +2,11 @@
 {% load markup %}
 
 {% block content %}
-<div>Page {{ page }} of {{ all_pages }}</div>
 {% for e in events %}
-	<h1><a href="{{ e.get_absolute_url }}">{{ e.name }}</a></h1>
-	<div>{{ e.desc|markdown }}</div>
+	<h2 class="event_title"><a href="{{ e.get_absolute_url }}">{{ e.name }}</a></h2>
+	<span>{{ e.desc|markdown }}</span>
 {% empty %}
-	<div>There are no events.</div>
+	<p>There are no events.</p>
 {% endfor %}
+<p>Page {{ page }} of {{ all_pages }}</p>
 {% endblock %}
