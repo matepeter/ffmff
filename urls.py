@@ -16,6 +16,7 @@ urlpatterns = patterns('ffmff.events.views',
 urlpatterns += patterns('django.views.generic.simple',
 	(r'^$', 'direct_to_template', {'template': 'home.html'}),
 	(r'^search/', include('haystack.urls')),
+	(r'^about/$', 'direct_to_template', {'template': 'about.html'}),
 )
 
 if DEBUG:
