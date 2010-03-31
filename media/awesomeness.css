@@ -34,6 +34,21 @@ div#content {
 	padding-left: 0.5em
 }
 
+div#content_eventlist {
+	float: left;
+	border: 0px;
+	margin: 0px;
+	width: 70%;
+}
+
+div#content_sidebar {
+	width: 30%;
+	border: 0px;
+	margin: 0px;
+	padding-top: 0.5em;
+	margin-left: 70%;
+}
+
 div#navigation {
 	border: solid 1px;
 	border-right-style: none;
@@ -68,10 +83,15 @@ input#suchfeld {
 }
 
 div#footer {
+	font-size: 80%;
+	color: #c0c0c0;
+	border-top: 1px solid;
 	background-color: white;
+	clear: both;
 }
 
-.event_title { font-family: Arial, Verdana, sans-serif; font-size: 150%; font-stretch: unchanged; font-weight: bold; }
+.event_title { font-family: Arial, Verdana, sans-serif; font-size: 130%; font-weight: bold; }
+.event_seperator { border: dashed #c0c0c0 1px;}
 
 h2 {
 }
