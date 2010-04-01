@@ -90,8 +90,9 @@ div#footer {
 	clear: both;
 }
 
-.event_title { font-family: Arial, Verdana, sans-serif; font-size: 130%; font-weight: bold; }
+.event_title { font-size: 130%; font-weight: bold; margin-bottom: 0.25em;}
 .event_seperator { border: dashed #c0c0c0 1px;}
+.event_date { font-size: 80%; color: #777777; }
 
 h2 {
 }

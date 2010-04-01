@@ -5,6 +5,7 @@
 <div id="content_eventlist" >
 {% for e in events %}
 	<h2 class="event_title"><a href="{{ e.get_absolute_url }}">{{ e.name }}</a></h2>
+	<span class="event_date">{{ e.date_start }} - {{ e.date_end }}</span>
 	<div class="event_desc">{{ e.desc|markdown }}</div>
 	<hr class="event_seperator">
 {% empty %}
