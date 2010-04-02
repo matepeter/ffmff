@@ -2,14 +2,18 @@
 {% load markup %}
 {% block title %}- {{event.name}}{% endblock %}
 {% block content %}
-<h1>{{event.name}}</h1>
-<p>{{event.date_start}} - {{event.date_end}}</p>
+<div id="content_main"><h1 class="event_title">{{event.name}}</h1>
+<p class="event_date">{{event.date_start}} - {{event.date_end}}</p>
 <p>{{ event.desc|markdown }}</p>
 <p>More information: <a href="{{event.url}}">{{event.url}}</a></p>
-<hr>
-<p>
+</div>
+<div id="content_sidebar">
+<a href="/events/export/ical/{{event.pk}}"><img src="/media/ical.gif" alt="Export as iCal"></a>
+<hr class="sidebar_seperator">
+<p class="event_taglist">Tags: 
 {% for tag in event.tags.all %}
 	{{ tag }}{% if not forloop.last %}, {% endif %}
 {% endfor %}
 </p>
+</div>
 {% endblock %}

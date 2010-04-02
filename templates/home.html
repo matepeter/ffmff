@@ -2,7 +2,7 @@
 {% load markup %}
 
 {% block content %}
-<div id="content_eventlist" >
+<div id="content_main" >
 {% for e in events %}
 	<h2 class="event_title"><a href="{{ e.get_absolute_url }}">{{ e.name }}</a></h2>
 	<span class="event_date">{{ e.date_start }} - {{ e.date_end }}</span>

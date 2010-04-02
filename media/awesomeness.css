@@ -34,7 +34,7 @@ div#content {
 	padding-left: 0.5em
 }
 
-div#content_eventlist {
+div#content_main {
 	float: left;
 	border: 0px;
 	margin: 0px;
@@ -93,6 +93,8 @@ div#footer {
 .event_title { font-size: 130%; font-weight: bold; margin-bottom: 0.25em;}
 .event_seperator { border: dashed #c0c0c0 1px;}
 .event_date { font-size: 80%; color: #777777; }
+.event_taglist { font-size: 80%; color: #777777; }
+.sidebar_seperator { border: solid #c0c0c0 1px; }
 
 h2 {
 }
