@@ -30,8 +30,15 @@ span#title {
 
 div#content {
 	background-color: white;
-	padding-right: 0.5em;
-	padding-left: 0.5em
+	padding-right: 8px;
+	padding-left: 8px;
+	width: 816px;
+	voice-family: "\"}\"";	/* alle folgenden Deklarationen
+							innerhalb des Deklarationsblockes
+							werden von IE 5.x/Win ignoriert */
+	voice-family:inherit;
+	width:784px;
+
 }
 
 div#content_main {
@@ -55,10 +62,16 @@ div#navigation {
 	border-left-style: none;
 	border-top-style: none;
 	height: 2em;
-	padding-right:0.5em;
-	padding-left:0.5em;
+	padding-right:8px;
+	padding-left:8px;
 	line-height: 1.2em;
 	vertical-align: middle;
+	width:816px;
+	voice-family: "\"}\"";	/* alle folgenden Deklarationen
+							innerhalb des Deklarationsblockes
+							werden von IE 5.x/Win ignoriert */
+	voice-family:inherit;
+	width:784px;
 }
 
 div#such_bereich {
