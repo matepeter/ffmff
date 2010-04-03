@@ -4,13 +4,13 @@
 # To Public License, Version 2, as published by Sam Hocevar. See
 # http://sam.zoy.org/wtfpl/COPYING for more details.
 
-from django.conf.urls.defaults import *
+from django.contrib import admin
 from models import Event, Tag
-from django.views.generic.simple import direct_to_template
 
-urlpatterns = patterns('ffmff.events.views',
-	(r'^submit/$', 'submit_event'),
-	(r'^submit/success/$', direct_to_template, {'template': 'events/submit_success.html'}),
-	(r'^export/ical/(?P<id>\d)/$', 'export_ical'),
-	(r'^(?P<id>\d)/$', 'view_event'),
-)
+class EventAdmin(admin.ModelAdmin):
+	list_display = ('pk', 'name', 'date_start', 'date_end', 'published')
+	list_filter = ('published', 'date_start', 'date_end', 'tags')
+	search_fields = ['name']
+
+admin.site.register(Event, EventAdmin)
+admin.site.register(Tag)
