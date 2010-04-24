@@ -5,7 +5,7 @@
 <div id="content_main"><h1 class="event_title">{{event.name}}</h1>
 <p class="event_date">{{event.date_start}} - {{event.date_end}}</p>
 {{ event.desc|markdown }}
-<p>More information: <a href="{{event.url}}">{{event.url}}</a></p>
+<p>Weitere Informationen: <a href="{{event.url}}">{{event.url}}</a><small> (Externer Link)</p>
 </div>
 <div id="content_sidebar">
 <a href="/events/export/ical/{{event.pk}}/"><img src="/media/ical.gif" alt="Export as iCal"></a>
