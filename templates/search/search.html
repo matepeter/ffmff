@@ -24,10 +24,10 @@
 {{ page.object_num }}
 <p>
 {% if page.number > 1 %}
-<a href="{{ base }}?query={{ query|urlencode }}&amp;page={{ page.previous_page_number }}">&larr; Previous</a>
+<a href="{{ base }}?query={{ query|urlencode }}&amp;page={{ page.previous_page_number }}">&larr; Vorherige Seite</a>
 {% endif %}
 {% if page.number < page.paginator.num_pages %}
-<a href="{{ base }}?query={{ query|urlencode }}&amp;page={{ page.next_page_number }}">Next &rarr;</a>
+<a href="{{ base }}?query={{ query|urlencode }}&amp;page={{ page.next_page_number }}">N&auml;chste Seite&rarr;</a>
 {% endif %}
 </p>
 {% endblock %}
