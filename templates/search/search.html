@@ -9,10 +9,11 @@
 	{% for result in page.object_list %}
 	<p>
 	<big><a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a></big><br />
+	<span class="event_date">{{ result.object.date_start }} - {{ result.object.date_end }}</span><br />
 	{% highlight result.object.desc with query html_tag "strong" max_length 200 %}
 	</p>
 	{% empty %}
-	<p>Konnte keine mit Ihrer Anfrage &uuml;bereinstimmenden Einträge finden.</p>
+	<p>Konnte keine mit Ihrer Anfrage &uuml;bereinstimmenden Eintr&auml;ge finden.</p>
 	{% endfor %}
 {% else %}
 	<h2>Hilfe</h2>
@@ -24,10 +25,10 @@
 {{ page.object_num }}
 <p>
 {% if page.number > 1 %}
-<a href="{{ base }}?query={{ query|urlencode }}&amp;page={{ page.previous_page_number }}">&larr; Previous</a>
+<a href="{{ base }}?query={{ query|urlencode }}&amp;page={{ page.previous_page_number }}">&larr; Vorherige Seite</a>
 {% endif %}
 {% if page.number < page.paginator.num_pages %}
-<a href="{{ base }}?query={{ query|urlencode }}&amp;page={{ page.next_page_number }}">Next &rarr;</a>
+<a href="{{ base }}?query={{ query|urlencode }}&amp;page={{ page.next_page_number }}">N&auml;chste Seite&rarr;</a>
 {% endif %}
 </p>
 {% endblock %}
