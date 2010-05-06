@@ -87,7 +87,6 @@ INSTALLED_APPS = (
 	'django.contrib.sites',
 	'django.contrib.markup',
 	'ffmff.events',
-	'ffmff.templatetags',
 	'haystack',
 	'south',
 )
