@@ -114,6 +114,6 @@ table#social_sharing {
 .event_date { font-size: 80%; color: #777777; }
 .event_taglist { font-size: 80%; color: #777777; }
 .sidebar_seperator { border: solid #c0c0c0 1px; }
-
+.search_titletext { font-size: 100%; text-align: right; font-style: italic; color: #777777; font-weight: normal; }
 h2 {
 }

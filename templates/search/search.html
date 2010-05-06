@@ -6,6 +6,7 @@
 
 {% block content %}
 {% if query %}
+	<h1 class="search_titletext">Ihre Suchergebnisse f&uuml;r "{{ query }}"</h1>
 	{% for result in page.object_list %}
 	<h2 class="event_title"><a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a></h2>
 	<span class="event_date">{{ result.object.date_start }} - {{ result.object.date_end }}</span>
