@@ -10,12 +10,11 @@ from settings import DEBUG
 urlpatterns = patterns('ffmff.events.views',
 	(r'^(page/(?P<page>\d+)/)?$', 'home'),
 	(r'^events/', include('ffmff.events.urls')),
+	(r'^search/', include('haystack.urls')),
 )
 
-# Home
+# direct to template stuff
 urlpatterns += patterns('django.views.generic.simple',
-	(r'^$', 'direct_to_template', {'template': 'home.html'}),
-	(r'^search/', include('haystack.urls')),
 	(r'^about/$', 'direct_to_template', {'template': 'about.html'}),
 )
 
