@@ -9,6 +9,7 @@
 	{% for result in page.object_list %}
 	<p>
 	<big><a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a></big><br />
+	<span class="event_date">{{ result.object.date_start }} - {{ result.object.date_end }}</span><br />
 	{% highlight result.object.desc with query html_tag "strong" max_length 200 %}
 	</p>
 	{% empty %}
