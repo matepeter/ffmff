@@ -10,7 +10,7 @@
 	{% for result in page.object_list %}
 	<h2 class="event_title"><a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a></h2>
 	<span class="event_date">{{ result.object.date_start }} - {{ result.object.date_end }}</span>
-	<div class="event_desc"><p>{% highlight result.object.desc with query html_tag "strong" max_length 200 %}</p></div>
+	<div class="search_eventdesc"><p>{% highlight result.object.desc with query html_tag "strong" max_length 200 %}</p></div>
 	<hr class="event_seperator">
 	{% empty %}
 	<p>Konnte keine mit Ihrer Anfrage &uuml;bereinstimmenden Eintr&auml;ge finden.</p>
