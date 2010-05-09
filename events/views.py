@@ -14,7 +14,6 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from ffmff.decorators import raise_404
 from datetime import datetime, timedelta
 from string import replace
-from math import ceil
 
 def home(request, page):
 	events = Event.objects.filter(published=True, date_end__gte=datetime.now())
