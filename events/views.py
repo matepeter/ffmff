@@ -10,39 +10,31 @@ from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext, Context
 from django.template.loader import get_template
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from ffmff.decorators import raise_404
 from datetime import datetime, timedelta
 from string import replace
 from math import ceil
 
 def home(request, page):
-	if page is None:
-		page = 1
-	else:
-		# why do i have to convert it?
+
+	events = Event.objects.filter(published=True, date_end__gte=datetime.now())
+	events = events.order_by('date_start')
+
+	paginator = Paginator(events, 10)
+
+	try:
 		page = int(page)
+	except (ValueError, TypeError):
+		page = 1
 
-	if not page > 0:
-		raise Http404('page has to be > 0')
-
-	start = 10 * (page-1)
-	events = Event.objects.filter(published=True, date_end__gte=datetime.now()).order_by('date_start')
-	all_count = events.count()
-	# couldn't that be done much nicer?
-	all_pages = int(ceil(all_count/10.0))
-	events = events[start:start+10]
-
-	if len(events) == 0 \
-	and not page == 1:
-		raise Http404('Page does not exist')
+	try:
+		events = paginator.page(page)
+	except (EmptyPage, InvalidPage):
+		raise Http404('Invalid page.')
 
 	return render_to_response('home.html',
-		{
-			'events': events,
-			'page': page,
-			'all_pages': all_pages,
-			'all_count': all_count,
-		}, context_instance=RequestContext(request))
+		{'events': events,}, context_instance=RequestContext(request))
 
 @raise_404
 def view_event(request, id):
