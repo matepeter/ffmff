@@ -17,21 +17,23 @@ from string import replace
 from math import ceil
 
 def home(request, page):
-
 	events = Event.objects.filter(published=True, date_end__gte=datetime.now())
 	events = events.order_by('date_start')
 
+	# 10 events per page
 	paginator = Paginator(events, 10)
 
+	# Make sure page request is an int. If not, deliver first page.
 	try:
 		page = int(page)
 	except (ValueError, TypeError):
 		page = 1
 
+	# If page request (9999) is out of range, deliver last page of results.
 	try:
 		events = paginator.page(page)
 	except (EmptyPage, InvalidPage):
-		raise Http404('Invalid page.')
+		contacts = paginator.page(paginator.num_pages)
 
 	return render_to_response('home.html',
 		{'events': events,}, context_instance=RequestContext(request))
