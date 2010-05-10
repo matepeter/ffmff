@@ -32,7 +32,7 @@ def home(request, page):
 	try:
 		events = paginator.page(page)
 	except (EmptyPage, InvalidPage):
-		contacts = paginator.page(paginator.num_pages)
+		events = paginator.page(paginator.num_pages)
 
 	return render_to_response('home.html',
 		{'events': events,}, context_instance=RequestContext(request))
