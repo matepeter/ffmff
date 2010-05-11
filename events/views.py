@@ -19,8 +19,8 @@ def home(request, page):
 	events = Event.objects.filter(published=True, date_end__gte=datetime.now())
 	events = events.order_by('date_start')
 
-	# 10 events per page
-	paginator = Paginator(events, 10)
+	# 5 events per page, 10 would be too much
+	paginator = Paginator(events, 5)
 
 	# Make sure page request is an int. If not, deliver first page.
 	try:
