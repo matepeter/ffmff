@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load highlight mini_calendar %}
+{% load highlight event %}
 
 {% block title %}- Suchergebnisse{% endblock %}
 
@@ -9,12 +9,8 @@
 	<div id="search_results">
 	<h1 class="search_titletext">Ihre Suchergebnisse f&uuml;r "{{ query }}"</h1>
 	{% for result in page.object_list %}
-	<div id="event">
-	{% mini_calendar result.date_start %}
-	<h2 class="event_title"><a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a></h2>
-	<span class="event_date">{{ result.object.date_start }} - {{ result.object.date_end }}</span>
+	{% event result.object %}
 	<hr class="event_seperator">
-	</div>
 	{% empty %}
 	<p>Konnte keine mit Ihrer Anfrage &uuml;bereinstimmenden Eintr&auml;ge finden.</p>
 	{% endfor %}
