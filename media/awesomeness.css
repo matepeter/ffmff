@@ -119,18 +119,13 @@ table#social_sharing {
 h2 {
 }
 
+/* Mini calendar stylesheet */
 span#mini_calendar {
-	margin-top:15px;
 	vertical-align:middle;
 	float:left;
 }
-#search_results span#mini_calendar {
-	margin-top:5px;
-}
 div#mini_calendar {
-	margin:10px;
-	margin-top:0px;
-	margin-left:0px;
+	margin-right:10px;
 	text-align:center;
 	border: 1px solid black;
 }
