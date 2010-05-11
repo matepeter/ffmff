@@ -120,14 +120,13 @@ h2 {
 }
 
 /* Mini calendar stylesheet */
-span#mini_calendar {
-	vertical-align:middle;
-	float:left;
-}
 div#mini_calendar {
 	margin-right:10px;
 	text-align:center;
 	border: 1px solid black;
+	vertical-align:middle;
+	float:left;
+
 }
 div#mini_calendar div {
 	padding:2px;
