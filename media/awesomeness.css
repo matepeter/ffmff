@@ -120,7 +120,7 @@ h2 {
 }
 
 /* Mini calendar stylesheet */
-div#mini_calendar {
+div.mini_calendar {
 	margin-right:10px;
 	text-align:center;
 	border: 1px solid black;
@@ -128,11 +128,11 @@ div#mini_calendar {
 	float:left;
 
 }
-div#mini_calendar div {
+div.mini_calendar div {
 	padding:2px;
 	font-weight:bold;
 }
-div#mini_calendar #mon {
+div.mini_calendar .mon {
 	color:white;
 	background-color:#3C8334;
 }
