@@ -118,3 +118,27 @@ table#social_sharing {
 .search_eventdesc { font-size: 90%; color: #444444; }
 h2 {
 }
+
+span#mini_calendar {
+	margin-top:15px;
+	vertical-align:middle;
+	float:left;
+}
+#search_results span#mini_calendar {
+	margin-top:5px;
+}
+div#mini_calendar {
+	margin:10px;
+	margin-top:0px;
+	margin-left:0px;
+	text-align:center;
+	border: 1px solid black;
+}
+div#mini_calendar div {
+	padding:2px;
+	font-weight:bold;
+}
+div#mini_calendar #day {
+	color:white;
+	background-color:#3C8334;
+}

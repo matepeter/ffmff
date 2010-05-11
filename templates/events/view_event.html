@@ -1,8 +1,10 @@
 {% extends "base.html" %}
-{% load markup %}
+{% load markup mini_calendar %}
 {% block title %}- {{event.name}}{% endblock %}
 {% block content %}
-<div id="content_main"><h1 class="event_title">{{event.name}}</h1>
+<div id="content_main">
+<span id="mini_calendar">{% mini_calendar event.date_start %}</span>
+<h1 class="event_title">{{event.name}}</h1>
 <p class="event_date">{{event.date_start}} - {{event.date_end}}</p>
 {{ event.desc|markdown }}
 <p>Weitere Informationen: <a href="{{event.url}}">{{event.url}}</a><small> (Externer Link)</small></p>
