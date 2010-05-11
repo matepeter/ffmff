@@ -10,7 +10,21 @@
 {% empty %}
 	<p>Keine Ereignisse eingetragen.</p>
 {% endfor %}
-<p>Seite {{ page }} von {{ all_pages }}</p>
+<div class="pagination">
+	<span class="step-links">
+		{% if events.has_previous %}
+			<a href="?page={{ events.previous_page_number }}">Vorherige</a>
+		{% endif %}
+
+		<span class="current">
+			Seite {{ events.number }} von {{ events.paginator.num_pages }}
+		</span>
+
+		{% if events.has_next %}
+			<a href="?page={{ events.next_page_number }}">N&auml;chste</a>
+		{% endif %}
+</span>
+</div>
 </div>
 <div id="content_sidebar">
 </div>
