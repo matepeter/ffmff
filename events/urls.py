@@ -12,5 +12,5 @@ urlpatterns = patterns('ffmff.events.views',
 	(r'^submit/$', 'submit_event'),
 	(r'^submit/success/$', direct_to_template, {'template': 'events/submit_success.html'}),
 	(r'^export/ical/(?P<id>\d)/$', 'export_ical'),
-	(r'^(?P<id>\d)/$', 'view_event'),
+	(r'^(?P<id>\d+)/$', 'view_event'),
 )
