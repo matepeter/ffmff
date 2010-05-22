@@ -1,12 +1,11 @@
 #!/bin/sh
 
+rm -r venv
 virtualenv venv
 . venv/bin/activate
 
 # django ;)
-wget http://www.djangoproject.com/download/1.2-rc-1/tarball/
-pip install $1 Django-1.2-rc-1.tar.gz
-rm Django-1.2-rc-1.tar.gz
+pip install $1 django
 pip install $1 south
 
 # search
