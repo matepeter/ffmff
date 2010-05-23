@@ -3,19 +3,45 @@
 # and/or modify it under the terms of the Do What The Fuck You Want
 # To Public License, Version 2, as published by Sam Hocevar. See
 # http://sam.zoy.org/wtfpl/COPYING for more details.
-
+import os
+from PIL import Image
 from django.db import models
 
 class Event(models.Model):
 	name = models.CharField(max_length=50)
 	desc = models.TextField()
 	url  = models.URLField()
-	# img  = 
+	img  = models.ImageField(upload_to='uploads/events/%Y%m', blank=True, null=True)
 	date_start = models.DateField()
 	date_end   = models.DateField()
 	tags = models.ManyToManyField('Tag', blank=True)
 	published = models.BooleanField()
 	submit_ip = models.IPAddressField()
+
+	def save(self):
+		super(Event, self).save()
+		filename = self.get_image_filename()
+		if not filename == '':
+			img = Image.open(filename)
+			img.thumbnail((180, 300), Image.ANTIALIAS)
+			img.save(self.get_thumb_filename())
+
+	def delete(self):
+		print self.get_thumb_filename()
+		try:
+			os.remove(self.get_thumb_filename())
+		except:
+			pass
+		super(Event, self).delete()
+
+	def get_image_filename(self):
+		return self.img.path
+
+	def get_thumb_filename(self):
+		filename = self.get_image_filename()
+		basename, format = filename.rsplit('.', 1)
+		basename, name = basename.rsplit(os.path.sep, 1)
+		return basename + '/' + name + '_t.' + format
 
 	def __unicode__(self):
 		return self.name
