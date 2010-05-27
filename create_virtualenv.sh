@@ -4,6 +4,9 @@ rm -r venv
 virtualenv venv
 . venv/bin/activate
 
+# sometimes pip is already installed by virtualenv, sometimes not.
+easy_install pip
+
 # django ;)
 pip install $1 django
 pip install $1 south
