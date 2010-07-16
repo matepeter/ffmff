@@ -105,8 +105,16 @@ div#footer {
 	clear: both;
 }
 
-table#social_sharing {
+.social_sharing {
 	border: 0;
+}
+
+.social_sharing a img {
+	opacity: 0.5;
+}
+
+.social_sharing a:hover img {
+	opacity: 1;
 }
 
 .event_title { font-size: 130%; font-weight: bold; margin-bottom: 0.25em;}
