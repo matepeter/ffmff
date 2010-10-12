@@ -29,3 +29,6 @@ if [ $? -gt 0 ]; then
 	echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 fi
 pip install $1 Markdown
+
+# easy-thumbnails
+pip install $1 easy-thumbnails
