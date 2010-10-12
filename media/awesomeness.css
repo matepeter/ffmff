@@ -153,3 +153,8 @@ div.mini_calendar .mon {
 	color:white;
 	background-color:#3C8334;
 }
+
+img.event_pic {
+	float: right;
+	margin: 10px;
+}
