@@ -6,3 +6,4 @@ settings.py
 venv/*
 index/*
 sqlite.db
+distribute-*.tar.gz
