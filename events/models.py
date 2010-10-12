@@ -10,12 +10,12 @@ class Event(models.Model):
 	name = models.CharField(max_length=50)
 	desc = models.TextField()
 	url  = models.URLField()
-	# img  = 
+	img  = models.ImageField(null=True, upload_to='events/', blank=True) 
 	date_start = models.DateField()
 	date_end   = models.DateField()
 	tags = models.ManyToManyField('Tag', blank=True)
 	published = models.BooleanField()
-	submit_ip = models.IPAddressField()
+	submit_ip = models.IPAddressField(blank=True)
 
 	def __unicode__(self):
 		return self.name
