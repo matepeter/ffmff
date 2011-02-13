@@ -1,28 +1,21 @@
 {% extends "base.html" %}
 {% load markup event %}
+{% load thumbnail %}
 {% block title %}- {{event.name}}{% endblock %}
 {% block content %}
 <div id="content_main">
 {% event_nolink event %}
+{% if event.img %}<img src="{% thumbnail event.img 150x250 %}" alt="{{event.name}}" class="event_pic">{% endif %}
 {{ event.desc|markdown }}
 <p>Weitere Informationen: <a href="{{event.url}}">{{event.url}}</a><small> (Externer Link)</small></p>
 </div>
 <div id="content_sidebar">
-<a href="/events/export/ical/{{event.pk}}/"><img src="/media/ical.gif" alt="Export as iCal"></a>
+<a class="exportbtn" href="/events/export/ical/{{event.pk}}/"><img src="/media/ical.gif" alt="Als iCal exportieren" title="Als iCal exportieren"></a><br>
+<a class="exportbtn" href="http://www.google.com/calendar/event?action=TEMPLATE&amp;text={{ event.name|urlencode }}&amp;dates={{ event.date_start|date:"Ymd" }}/{{ event.date_end|date:"Ymd" }}&amp;sprop=website:http:%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}&amp;sprop=name:FilmFestivals%20in%20Frankfurt" target="_self" rel="nofollow" title="Via Google Calendar teilen"><img src="/media/gcal.gif" alt="Zum Google Calendar hinzuf&uuml;gen" title="Zum Google Calendar hinzuf&uuml;gen"></a>
 <table class="social_sharing">
-<tr>
-<td><a href="http://www.facebook.com/share.php?u=http%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}&amp;title={{ event.name|urlencode }}%20-%20FilmFestivals%20in%20Frankfurt" target="_self" rel="nofollow" title="Via Facebook teilen"><img src="/media/icons/facebook.gif"></a></td>
-<td><a href="http://del.icio.us/post?url=http%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}&amp;title={{ event.name|urlencode }}%20-%20FilmFestivals%20in%20Frankfurt" target="_self" rel="nofollow" title="Via Del.icio.us teilen"><img src="/media/icons/delicious.gif"></a></td>
-<td><a href="http://digg.com/submit?url=http%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}&amp;title={{ event.name|urlencode }}%20-%20FilmFestivals%20in%20Frankfurt" target="_self" rel="nofollow" title="Via digg.com teilen"><img src="/media/icons/digg.gif"></a></td>
-<td><a href="http://reddit.com/submit?url=http%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}&amp;title={{ event.name|urlencode }}%20-%20FilmFestivals%20in%20Frankfurt" target="_self" rel="nofollow" title="Via Reddit teilen"><img src="/media/icons/reddit.gif"></a></td>
-<td><a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}&amp;title={{ event.name|urlencode }}%20-%20FilmFestivals%20in%20Frankfurt" target="_self" rel="nofollow" title="Via Stumbleupon teilen"><img src="/media/icons/stumbleupon.gif"></a></td>
-</tr><tr>
-<td><a href="http://technorati.com/faves?add=http%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}" target="_self" rel="nofollow" title="Via Technorati teilen"><img src="/media/icons/technorati.gif"></a></td>
-<td><a href="http://www.myspace.com/Modules/PostTo/Pages/?u=http%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}&amp;t={{ event.name|urlencode }}%20-%20FilmFestivals%20in%20Frankfurt" target="_self" rel="nofollow" title="Via MySpace teilen"><img src="/media/icons/myspace.gif"></a></td>
-<td><a href="http://www.friendfeed.com/share?title={{ event.name|urlencode }}%20-%20FilmFestivals%20in%20Frankfurt&amp;link=http%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}" target="_self" rel="nofollow" title="Via FriendFeed teilen"><img src="/media/icons/friendfeed.gif"></a></td>
-<td><a href="http://www.google.com/calendar/event?action=TEMPLATE&amp;text={{ event.name|urlencode }}&amp;dates={{ event.date_start|date:"Ymd" }}/{{ event.date_end|date:"Ymd" }}&amp;sprop=website:http:%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}&amp;sprop=name:FilmFestivals%20in%20Frankfurt" target="_self" rel="nofollow" title="Via Google Calendar teilen"><img src="/media/icons/google.gif"></a></td>
-<td></td>
-</tr>
+<!-- AddThis Button BEGIN -->
+<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4c51b4c9586cea52"><img src="http://s7.addthis.com/static/btn/sm-share-en.gif" width="83" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4c51b4c9586cea52"></script>
+<!-- AddThis Button END -->
 </table>
 <hr class="sidebar_seperator">
 <p class="event_taglist">Tags: 

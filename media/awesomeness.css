@@ -105,8 +105,25 @@ div#footer {
 	clear: both;
 }
 
-table#social_sharing {
+.social_sharing {
 	border: 0;
+}
+
+.social_sharing a img {
+	opacity: 0.5;
+}
+
+.social_sharing a:hover img {
+	opacity: 1;
+}
+
+a.exportbtn img {
+	opacity: 0.5;
+}
+
+a.exportbtn:hover img {
+	opacity: 1;
+	background-color: transparent;
 }
 
 .event_title { font-size: 130%; font-weight: bold; margin-bottom: 0.25em;}
@@ -135,4 +152,9 @@ div.mini_calendar div {
 div.mini_calendar .mon {
 	color:white;
 	background-color:#3C8334;
+}
+
+img.event_pic {
+	float: right;
+	margin: 10px;
 }

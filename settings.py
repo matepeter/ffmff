@@ -89,6 +89,7 @@ INSTALLED_APPS = (
 	'ffmff.events',
 	'haystack',
 	'south',
+	'easy_thumbnails',
 )
 
 if DEBUG:
