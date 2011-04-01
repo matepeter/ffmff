@@ -17,7 +17,7 @@ a:hover { background-color: #E4E4E4; }
 img { border: 0; }
 
 div#header {
-	background-image: url(/media/header.gif);
+	background-image: url(/media/header.png);
 	border-style: none;
 	height: 220px;
 }
