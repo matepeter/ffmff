@@ -134,6 +134,7 @@ a.exportbtn:hover img {
 .search_titletext { font-size: 100%; font-style: italic; color: #777777; font-weight: normal; }
 .search_eventdesc { font-size: 90%; color: #444444; }
 h2 {
+	font-size: 110%;
 }
 
 /* Mini calendar stylesheet */
