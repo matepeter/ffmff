@@ -159,3 +159,9 @@ img.event_pic {
 	float: right;
 	margin: 10px;
 }
+
+div#event_address p {
+	margin-bottom: 0.3em;
+	margin-top: 0.3em;
+	font-size: 80%;
+}

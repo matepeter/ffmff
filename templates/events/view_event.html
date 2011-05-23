@@ -18,6 +18,10 @@
 <!-- AddThis Button END -->
 </table>
 <hr class="sidebar_seperator">
+{% if event.location %}<div id="event_address">
+{{ event.location|markdown }}
+</div>
+<hr class="sidebar_seperator">{% endif %}
 <p class="event_taglist">Tags: 
 {% for tag in event.tags.all %}
 	{{ tag }}{% if not forloop.last %}, {% endif %}
