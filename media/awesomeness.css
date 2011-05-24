@@ -30,6 +30,10 @@ span#title {
 	width: 285px;
 }
 
+div#header a:hover {
+	background-color: #000000;
+}
+
 div#content {
 	background-color: white;
 	padding-right: 8px;

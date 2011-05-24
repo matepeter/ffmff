@@ -7,7 +7,7 @@
 	{% else %}
 		<a href="{{ e.get_absolute_url }}">{{ e.name }}</a>
 	{% endif %}
-</h2>
+</h1>
 <span class="event_date">
 {% if e.date_start == e.date_end %}
 	{{ e.date_end|date:"l, j. F Y" }}
