@@ -44,8 +44,11 @@ def view_event(request, id):
 	if not event.published:
 		raise Http404
 
+	# We need this for Google Calendar export, otherwise the event will end one day early
+	enddate_plusone = event.date_end + timedelta(days=1)
+
 	return render_to_response('events/view_event.html',
-		{'event': event}, context_instance=RequestContext(request))
+			{'event': event, 'enddate_plusone': enddate_plusone}, context_instance=RequestContext(request))
 
 def submit_event(request):
 	if request.method == 'POST':
@@ -76,7 +79,7 @@ def export_ical(request, id):
 	if not event.published:
 		raise Http404
 
-	ical_enddate = event.date_end + timedelta(days=1)
+	enddate_plusone = event.date_end + timedelta(days=1)
 	ical_desc = replace(event.desc, '\n', '\\n')
 	ical_desc = replace(ical_desc, '\r', '')
 
@@ -85,7 +88,7 @@ def export_ical(request, id):
 	render = t.render(Context(
 		{
 			'event': event,
-			'ical_enddate': ical_enddate,
+			'enddate_plusone': enddate_plusone,
 			'ical_desc': ical_desc,
 		}
 	))

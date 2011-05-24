@@ -11,7 +11,7 @@
 </div>
 <div id="content_sidebar">
 <div id="social_sharing"><a class="exportbtn" href="/events/export/ical/{{event.pk}}/"><img src="/media/ical.gif" alt="Als iCal exportieren" title="Als iCal exportieren"></a>
-<a class="exportbtn" href="http://www.google.com/calendar/event?action=TEMPLATE&amp;text={{ event.name|urlencode }}&amp;dates={{ event.date_start|date:"Ymd" }}/{{ event.date_end|date:"Ymd" }}&amp;sprop=website:http:%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}&amp;sprop=name:FilmFestivals%20in%20Frankfurt" target="_self" rel="nofollow" title="Via Google Calendar teilen"><img src="/media/gcal.gif" alt="Zum Google Calendar hinzuf&uuml;gen" title="Zum Google Calendar hinzuf&uuml;gen"></a>
+<a class="exportbtn" href="http://www.google.com/calendar/event?action=TEMPLATE&amp;text={{ event.name|urlencode }}&amp;dates={{ event.date_start|date:"Ymd" }}/{{ enddate_plusone|date:"Ymd" }}&amp;sprop=website:http:%3A%2F%2Fffmff.de{{ event.get_absolute_url|urlencode }}&amp;sprop=name:FilmFestivals%20in%20Frankfurt" target="_self" rel="nofollow" title="Via Google Calendar teilen"><img src="/media/gcal.gif" alt="Zum Google Calendar hinzuf&uuml;gen" title="Zum Google Calendar hinzuf&uuml;gen"></a>
 <!-- AddThis Button BEGIN -->
 <a class="addthis_button exportbtn" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4c51b4c9586cea52"><img src="http://s7.addthis.com/static/btn/sm-share-en.gif" width="83" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4c51b4c9586cea52"></script>
 <!-- AddThis Button END -->

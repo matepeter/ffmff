@@ -5,7 +5,7 @@ UID:{{ event.pk }}@ffmff
 SUMMARY:{{ event.name }}
 DESCRIPTION:{{ ical_desc }}
 DTSTART;TYPE=DATE:{{ event.date_start|date:"Ymd" }}
-DTEND;TYPE=DATE:{{ ical_enddate|date:"Ymd" }}
+DTEND;TYPE=DATE:{{ enddate_plusone|date:"Ymd" }}
 URL;TYPE=URI:{{ event.url }}
 END:VEVENT
 END:VCALENDAR
