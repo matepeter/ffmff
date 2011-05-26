@@ -15,10 +15,7 @@ from ffmff.decorators import raise_404
 from datetime import datetime, timedelta
 from string import replace
 
-def home(request, page):
-	events = Event.objects.filter(published=True, date_end__gte=datetime.now())
-	events = events.order_by('date_start')
-
+def event_pagination(events, page):
 	# 5 events per page, 10 would be too much
 	paginator = Paginator(events, 5)
 
@@ -34,8 +31,24 @@ def home(request, page):
 	except (EmptyPage, InvalidPage):
 		events = paginator.page(paginator.num_pages)
 
+	return events
+
+def home(request, page):
+	events = Event.objects.filter(published=True, date_end__gte=datetime.now())
+	events = events.order_by('date_start')
+	events = event_pagination(events, page)
+
 	return render_to_response('home.html',
 		{'events': events,}, context_instance=RequestContext(request))
+
+def past_events(request, page):
+	events = Event.objects.filter(published=True, date_end__lt=datetime.now())
+	events = events.order_by('-date_start')
+	events = event_pagination(events, page)
+
+	return render_to_response('events/past.html',
+		{'events': events,}, context_instance=RequestContext(request))
+ 
 
 @raise_404
 def view_event(request, id):

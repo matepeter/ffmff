@@ -17,6 +17,6 @@ class EventIndex(indexes.SearchIndex):
 
 	def get_queryset(self):
 		"""Used when the entire index for model is updated."""
-		return Event.objects.exclude(date_end__lte=datetime.now()).exclude(published=False)
+		return Event.objects.exclude(published=False)
 
 site.register(Event, EventIndex)

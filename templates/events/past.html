@@ -4,7 +4,7 @@
 
 {% block content %}
 <div id="content_main" >
-<p><b>Zukünftige oder laufende Events</b> - <a href="/past/">Vergangene Events</a></p>
+<p><a href="/">Zukünftige oder laufende Events</a> - <b>Vergangene Events</b></p>
 {% for e in events.object_list %}
 <div class="event">
 	{% event e %}
@@ -19,7 +19,7 @@
 <div class="pagination">
 	<span class="step-links">
 		{% if events.has_previous %}
-			<a href="/page/{{ events.previous_page_number }}/">Vorherige</a>
+			<a href="/past/page/{{ events.previous_page_number }}/">Vorherige</a>
 		{% endif %}
 
 		<span class="current">
@@ -27,7 +27,7 @@
 		</span>
 
 		{% if events.has_next %}
-			<a href="/page/{{ events.next_page_number }}/">N&auml;chste</a>
+			<a href="/past/page/{{ events.next_page_number }}/">N&auml;chste</a>
 		{% endif %}
 </span>
 </div>

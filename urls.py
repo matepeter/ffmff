@@ -9,6 +9,7 @@ from settings import DEBUG
 
 urlpatterns = patterns('ffmff.events.views',
 	(r'^(page/(?P<page>\d+)/)?$', 'home'),
+	(r'^past/(page/(?P<page>\d+)/)?$', 'past_events'),
 	(r'^events/', include('ffmff.events.urls')),
 	(r'^search/', include('haystack.urls')),
 )
