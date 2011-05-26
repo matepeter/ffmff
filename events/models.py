@@ -16,6 +16,8 @@ class Event(models.Model):
 	tags = models.ManyToManyField('Tag', blank=True)
 	published = models.BooleanField()
 	submit_ip = models.IPAddressField(blank=True)
+	location = models.TextField(blank=True)
+	geoloc = models.TextField(blank=True)
 
 	def __unicode__(self):
 		return self.name

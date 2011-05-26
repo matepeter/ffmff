@@ -6,7 +6,7 @@ body {
 	font-family: "Arial", "Helvetica", "Verdana", sans-serif;
 	font-size: 100.01%;
 	background-color: white;
-	width: 800px;
+	width: 960px;
 	margin: 0 auto;
 	margin-top: 2em;
 }
@@ -17,7 +17,7 @@ a:hover { background-color: #E4E4E4; }
 img { border: 0; }
 
 div#header {
-	background-image: url(/media/header.gif);
+	background-image: url(/media/header.png);
 	border-style: none;
 	height: 220px;
 }
@@ -30,16 +30,20 @@ span#title {
 	width: 285px;
 }
 
+div#header a:hover {
+	background-color: #000000;
+}
+
 div#content {
 	background-color: white;
 	padding-right: 8px;
 	padding-left: 8px;
-	width: 816px;
+	width: 976px;
 	voice-family: "\"}\"";	/* alle folgenden Deklarationen
 							innerhalb des Deklarationsblockes
 							werden von IE 5.x/Win ignoriert */
 	voice-family:inherit;
-	width:784px;
+	width:944px;
 
 }
 
@@ -68,12 +72,12 @@ div#navigation {
 	padding-left:8px;
 	line-height: 1.2em;
 	vertical-align: middle;
-	width:816px;
+	width:976px;
 	voice-family: "\"}\"";	/* alle folgenden Deklarationen
 							innerhalb des Deklarationsblockes
 							werden von IE 5.x/Win ignoriert */
 	voice-family:inherit;
-	width:784px;
+	width:944px;
 }
 
 div#such_bereich {
@@ -105,18 +109,6 @@ div#footer {
 	clear: both;
 }
 
-.social_sharing {
-	border: 0;
-}
-
-.social_sharing a img {
-	opacity: 0.5;
-}
-
-.social_sharing a:hover img {
-	opacity: 1;
-}
-
 a.exportbtn img {
 	opacity: 0.5;
 }
@@ -127,13 +119,14 @@ a.exportbtn:hover img {
 }
 
 .event_title { font-size: 130%; font-weight: bold; margin-bottom: 0.25em;}
-.event_seperator { border: dashed #c0c0c0 1px;}
+.event_seperator { border: dashed #c0c0c0 1px; width: 650px;}
 .event_date { font-size: 80%; color: #777777; }
 .event_taglist { font-size: 80%; color: #777777; }
 .sidebar_seperator { border: solid #c0c0c0 1px; }
 .search_titletext { font-size: 100%; font-style: italic; color: #777777; font-weight: normal; }
 .search_eventdesc { font-size: 90%; color: #444444; }
 h2 {
+	font-size: 110%;
 }
 
 /* Mini calendar stylesheet */
@@ -157,4 +150,23 @@ div.mini_calendar .mon {
 img.event_pic {
 	float: right;
 	margin: 10px;
+	position: relative;
+	top: -50px;
+	border: 1px solid #c0c0c0;
+}
+
+img.event_desc_pic {
+	top: 0px;
+	border: 0px;
+	padding-right: 10px;
+}
+
+div#event_address p {
+	margin-bottom: 0.3em;
+	margin-top: 0.3em;
+	font-size: 80%;
+}
+
+div#social_sharing {
+	margin-top: 10px;
 }

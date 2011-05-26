@@ -1,13 +1,13 @@
 {% load mini_calendar %}
-<div class="event">
+<div class="event_head">
 {% mini_calendar e.date_start %}
-<h2 class="event_title">
+<h1 class="event_title">
 	{% if nolink %}
 		{{ e.name }}
 	{% else %}
 		<a href="{{ e.get_absolute_url }}">{{ e.name }}</a>
 	{% endif %}
-</h2>
+</h1>
 <span class="event_date">
 {% if e.date_start == e.date_end %}
 	{{ e.date_end|date:"l, j. F Y" }}

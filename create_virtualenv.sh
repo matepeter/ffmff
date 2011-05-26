@@ -32,3 +32,6 @@ pip install $1 Markdown
 
 # easy-thumbnails
 pip install $1 easy-thumbnails
+
+# python imaging library
+pip install $1 pil
