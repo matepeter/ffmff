@@ -8,3 +8,5 @@
 " DON'T PUT THE FOLLOWING INTO YOUR GLOBAL VIMRC
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
+set noexpandtab
