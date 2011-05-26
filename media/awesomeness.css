@@ -170,3 +170,21 @@ div#event_address p {
 div#social_sharing {
 	margin-top: 10px;
 }
+
+/* django forms */
+table.submit_form th {
+	vertical-align:top;
+	text-align:right;
+	padding-right:10px;
+}
+ul.errorlist {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+ul.errorlist li {
+	margin:0;
+	padding:0;
+	list-style:none;
+	color:red;
+}
