@@ -1,6 +1,4 @@
 TO-DO
 =====
 
- - Ich würde gerne sowohl Start- als auch Enddatum im Minikalender darstellen, mittels mouse-over über den Kalender wird der obere Teil rot statt grün und das Enddatum wird angezeigt. Keine Ahnung ob das ohne richtig hässliches und/oder inkompatibles Zeug möglich ist, nur so eine Idee.
-
  - Ältere Events, also Events deren Enddatum vor dem aktuellen Datum liegt, sollten in der Suche a) filterbar und b) hervorgehoben werden, z.B. durch eine Anmerkung. So kann der User sofort erkennen, ob ein Event überhaupt noch eine Relevanz für ihn hat, ohne die Daten vergleichen zu müssen.
