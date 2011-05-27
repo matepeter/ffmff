@@ -1,6 +1,6 @@
 {% load mini_calendar %}
 <div class="event_head">
-{% mini_calendar e.date_start %}
+{% mini_calendar e.date_start e.date_end %}
 <h1 class="event_title">
 	{% if nolink %}
 		{{ e.name }}

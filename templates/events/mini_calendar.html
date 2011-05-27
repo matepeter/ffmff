@@ -1,8 +1,14 @@
 <div class="mini_calendar{% if past %} past{% endif %}">
 	<div class="mon">
-	{{ date|date:"b" }}
+	{{ date_begin|date:"b" }}
+	</div>
+	<div class="mon_hover">
+	{{ date_end|date:"b" }}
 	</div>
 	<div class="day">
-	{{ date|date:"d" }}
+	{{ date_begin|date:"d" }}
+	</div>
+	<div class="day_hover">
+	{{ date_end|date:"d" }}
 	</div>
 </div>

@@ -130,7 +130,7 @@ h2 {
 }
 
 /* Mini calendar stylesheet */
-div.mini_calendar {
+.mini_calendar {
 	margin-right:10px;
 	text-align:center;
 	border: 1px solid black;
@@ -138,16 +138,36 @@ div.mini_calendar {
 	float:left;
 
 }
-div.mini_calendar div {
+.mini_calendar div {
 	padding:2px;
 	font-weight:bold;
 }
-div.mini_calendar .mon {
+.mini_calendar .mon,
+.mini_calendar .mon_hover {
 	color:white;
 	background-color:#3C8334;
 }
 
-div.mini_calendar.past .mon {
+.mini_calendar .mon_hover,
+.mini_calendar .day_hover{
+	display:none;
+}
+
+.event_head:hover .mini_calendar .mon_hover {
+	background-color: black !important;
+}
+
+.event_head:hover .mini_calendar .mon_hover,
+.event_head:hover .mini_calendar .day_hover {
+	display:block;
+}
+.event_head:hover .mini_calendar .mon,
+.event_head:hover .mini_calendar .day {
+	display:none;
+}
+
+.mini_calendar.past .mon,
+.mini_calendar.past .mon_hover {
 	background-color:gray !important;
 }
 
