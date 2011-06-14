@@ -5,7 +5,7 @@
 {% block content %}
 <div id="content_main">
 {% event_nolink event %}
-{% if event.img %}<img src="{% thumbnail event.img 150x250 %}" alt="{{event.name}}" class="event_pic event_desc_pic">{% endif %}
+{% if event.img %}<img src="{% thumbnail event.img 175x275 %}" alt="{{event.name}}" class="event_pic event_desc_pic">{% endif %}
 {{ event.desc|markdown }}
 <p>Weitere Informationen: <a href="{{event.url}}">{{event.url}}</a><small> (Externer Link)</small></p>
 </div>

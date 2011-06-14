@@ -9,7 +9,7 @@
 <div class="event">
 	{% event e %}
 	<div class="event_desc">
-	{% if e.img %}<a href="{{ e.get_absolute_url }}"><img src="{% thumbnail e.img 100x200 %}" alt="{{e.name}}" class="event_pic"></a>{% endif %}
+	{% if e.img %}<a href="{{ e.get_absolute_url }}"><img src="{% thumbnail e.img 125x225 %}" alt="{{e.name}}" class="event_pic"></a>{% endif %}
 	{{ e.desc|markdown|truncatewords_html:40 }}</div>
 </div>
 	<hr class="event_seperator">
